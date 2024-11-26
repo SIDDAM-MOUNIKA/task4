@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Online Shopping</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f75daa;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 0;
+            padding: 10px 0;
+            background: black;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        section {
+            display: none;
+            padding: 20px;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        /* Portfolio Section Styles */
+        #portfolio {
+            background-color: #f9f9f9;
+            padding: 40px 20px;
+        }
+
+        #portfolio h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        #portfolio .portfolio-item {
+            width: 30%;
+            margin: 10px;
+            display: inline-block;
+            text-align: center;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #portfolio .portfolio-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        #portfolio .portfolio-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        #portfolio .portfolio-item img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Other section styles */
+        #about img {
+            width: 30%;
+            max-width: 300px;
+            margin: 0 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #about img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Product Listing Styles */
+        #filters {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        #product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .product img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Wishlist (To-Do List) Styles */
+        #wishlist ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #wishlist ul li {
+            background: #f4f4f4;
+            margin: 5px 0;
+            padding: 5px;
+            border: 1px solid #ddd;
+        }
+
+        /* Contact Form */
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        form input, form textarea, form button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #5183e0;
+            color: white;
+        }
+
+        #total-price {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #clear-wishlist-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #f75daa;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #clear-wishlist-btn:hover {
+            background-color: #d66e95;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Women's Online Shopping</h1>
+        <p>Your one-stop destination for fashion and lifestyle.</p><br>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a onclick="showSection('about')">About</a></li>
+            <li><a onclick="showSection('portfolio')">Portfolio</a></li> <!-- Added Portfolio link -->
+            <li><a onclick="showSection('products')">Products</a></li>
+            <li><a onclick="showSection('wishlist')">Wishlist</a></li>
+            <li><a onclick="showSection('contact')">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="active">
+        <h1>About Us</h1> <BR>
+        <p>Welcome to our store! We offer a wide range of women's fashion, from elegant dresses to casual wear, all designed to make you feel confident and stylish.</p><BR>
+        <img src="https://img.pikbest.com/illustration/20190418/cartoon-e-commerce-online-shopping-women-s-clothing-shopping-illustration_2990598.png!w700wp">
+        <img src="https://img.pikbest.com/png-images/qiantu/cartoon-mall-fashion-shopping-hipster-business-online-shopping-girl-element_2543318.png!sw800">
+        <img src="https://img.freepik.com/premium-vector/it-s-shopping-time-illustration_23-2147523161.jpg">
+    </section>
+
+    <!-- Portfolio Section -->
+<section id="portfolio">
+    <h2>Our Portfolio</h2>
+    <div class="portfolio-item">
+        <img src="https://i.ytimg.com/vi/I4BsmUuHwUo/maxresdefault.jpg">
+        <h3>New Project 1</h3>
+        <p>Modern Look for Winter Collection</p>
+    </div>
+        <div class="portfolio-item">
+        <img src="https://tse1.mm.bing.net/th?id=OIP.YPwfTS9lUemfbD1vMsJ4CwHaEJ&pid=Api&P=0&h=180">
+        <h3>New Project 3</h3>
+        <p>Summer Fashion Trends</p>
+    </div>
+</section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <h2>Our Products</h2>
+        <div id="filters">
+            <label for="category">Category:</label>
+            <select id="category">
+                <option value="all">All</option>
+                <option value="clothing">Clothing</option>
+                <option value="accessories">Accessories</option>
+                <option value="footwear">Footwear</option>
+            </select>
+
+            <label for="price">Sort by Price:</label>
+            <select id="price">
+                <option value="low-to-high">Low to High</option>
+                <option value="high-to-low">High to Low</option>
+            </select>
+        </div>
+
+        <div id="product-grid">
+            <!-- Product Items -->
+            <div class="product" data-category="clothing" data-price="999">
+                <img src="https://m.media-amazon.com/images/S/aplus-media-library-service-media/4c23c8ac-0e32-4eb8-8dcd-02b8cbb4fccb.__CR0,0,970,600_PT0_SX970_V1___.jpg" alt="Dress">
+                <h3>Elegant Dress</h3>
+                <p>Price: $999</p>
+                <button class="add-to-wishlist">Add to Wishlist</button>
+            </div>
+            <div class="product" data-category="clothing" data-price="500">
+                <img src="https://images.meesho.com/images/products/411850966/ngap0_512.webp" alt="Casual Shirt">
+                <h3>Saree</h3>
+                <p>Price: $500</p>
+                <button class="add-to-wishlist">Add to Wishlist</button>
+            </div>
+            <div class="product" data-category="accessories" data-price="400">
+                <img src="https://rukminim2.flixcart.com/image/850/1000/xif0q/watch/m/6/o/1-ct2020-carlington-women-original-imahfzh2wh6xtqqf.jpeg?q=90&crop=false" alt="Watches">
+                <h3>Watch</h3>
+                <p>Price: $400</p>
+                <button class="add-to-wishlist">Add to Wishlist</button>
+            </div>
+            <div class="product" data-category="accessories" data-price="750">
+                <img src="https://images.glowroad.com/faceview/f3c/j5a/hh/c9b/imgs/pd/1681121401987_shp3-xlgn400x400.jpg?productId=P-14059166" alt="Handbag">
+                <h3>Stylish Handbag</h3>
+                <p>Price: $750</p>
+                <button class="add-to-wishlist">Add to Wishlist</button>
+            </div>
+            <div class="product" data-category="accessories" data-price="1000">
+                <img src="https://shop.southindiajewels.com/wp-content/uploads/2022/08/Cute-Little-Jhumkas-4-scaled-760x1013.jpg" alt="Earrings">
+                <h3>Gold Earrings</h3>
+                <p>Price: $1000</p>
+                <button class="add-to-wishlist">Add to Wishlist</button>
+            </div>
+            <div class="product" data-category="accessories" data-price="800">
+                <img src="https://www.giva.co/cdn/shop/files/PD01881_2.jpg?v=1683811997&width=1445" alt="Necklace">
+                <h3>Silver Necklace</h3>
+                <p>Price: $800</p>
+                <button class="add-to-wishlist">Add to Wishlist</button>
+            </div>
+            <div class="product" data-category="clothing" data-price="500">
+                <img src="https://rukminim2.flixcart.com/image/850/1000/xif0q/t-shirt/1/r/r/xl-kk-211-sonali-original-imagtmpbqq7zabzr.jpeg?q=90&crop=false" alt="Heels">
+                <h3>T-shirts</h3>
+                <p>Price: $500</p>
+                <button class="add-to-wishlist">Add to Wishlist</button>
+            </div>
+            <div class="product" data-category="accessories" data-price="250">
+                <img src="https://rukminim2.flixcart.com/image/850/1000/xif0q/makeup-kit/m/t/o/makeup-kit-all-in-one-bridal-makeup-gift-set-for-women-full-kit-original-imagw3dmrngmmtfx.jpeg?q=90&crop=false" alt="Sneakers">
+                <h3>Makeup kit</h3>
+                <p>Price: $250</p>
+                <button class="add-to-wishlist">Add to Wishlist</button>
+            </div>
+            <div class="product" data-category="footwear" data-price="500">
+                <img src="https://i.pinimg.com/236x/72/13/ba/7213bae59dc99381ad132afcf77e02d5.jpg" alt="Boots">
+                <h3>Sandals</h3>
+                <p>Price: $500</p>
+                <button class="add-to-wishlist">Add to Wishlist</button>
+            </div>
+            <div class="product" data-category="accessories" data-price="200">
+                <img src="https://i.ytimg.com/vi/iUEFbEg2ECs/maxresdefault.jpg" alt="Casual Shirt">
+                <h3>Casual Hair Bands and Clips</h3>
+                <p>Price: $200</p>
+                <button class="add-to-wishlist">Add to Wishlist</button>
+            </div>
+            <div class="product" data-category="footwear" data-price="500">
+                <img src="https://i5.walmartimages.com/asr/3445009d-6c15-4ac4-8a29-0055e5b978ec.cb3b7dc0be4ba7ca5467b2c421fef538.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF" alt="Boots">
+                <h3>Belt</h3>
+                <p>Price: $500</p>
+                <button class="add-to-wishlist">Add to Wishlist</button>
+            </div>
+             <div class="product" data-category="footwear" data-price="700">
+                <img src="https://images-static.nykaa.com/media/catalog/product/1/7/17387f9Ultra-Golden_1.JPG?tr=w-500" alt="Heels">
+                <h3>Heels</h3>
+                <p>Price: $700</p>
+                <button class="add-to-wishlist">Add to Wishlist</button>
+            </div>
+             <div class="product" data-category="footwear" data-price="800">
+                <img src="https://rukminim2.flixcart.com/image/850/1000/xif0q/shoe/x/i/h/7-brd-688-brd-875-7-birde-blue-peach-original-imagrncghy45nsvt.jpeg?q=90&crop=false" alt="Boots">
+                <h3>Sports shoes</h3>
+                <p>Price: $800</p>
+                <button class="add-to-wishlist">Add to Wishlist</button>
+            </div>
+            <div class="product" data-category="clothing" data-price="500">
+                <img src="https://evilato.com/wp-content/uploads/2022/02/IMG-20220205-WA0007.jpg" alt="lehanga">
+                <h3>Lehanga</h3>
+                <p>Price: $500</p>
+                <button class="add-to-wishlist">Add to Wishlist</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Wishlist Section -->
+    <section id="wishlist">
+        <h2>Your Wishlist</h2>
+        <ul id="wishlist-items"></ul>
+        <div id="total-price">Total Price: $0</div>
+        <button id="clear-wishlist-btn" onclick="clearWishlist()">Clear Wishlist</button>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Women's Online Shopping. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Wishlist Functionality
+        const wishlist = document.getElementById('wishlist-items');
+        const totalPriceDisplay = document.getElementById('total-price');
+        const addToWishlistButtons = document.querySelectorAll('.add-to-wishlist');
+        const clearWishlistButton = document.getElementById('clear-wishlist-btn');
+
+        let totalPrice = 0;
+
+        addToWishlistButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                const productElement = event.target.parentElement;
+                const productName = productElement.querySelector('h3').textContent;
+                const productPrice = parseInt(productElement.getAttribute('data-price'));
+
+                // Create wishlist item and display it
+                const li = document.createElement('li');
+                li.textContent = `${productName} - $${productPrice}`;
+                wishlist.appendChild(li);
+
+                // Update total price
+                totalPrice += productPrice;
+                totalPriceDisplay.textContent = `Total Price: $${totalPrice}`;
+
+                // Save to localStorage
+                saveToWishlist(productName, productPrice);
+            });
+        });
+
+        // Save and Load Wishlist
+        function saveToWishlist(product, price) {
+            let wishlistArray = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlistArray.push({ product, price });
+            localStorage.setItem('wishlist', JSON.stringify(wishlistArray));
+        }
+
+        function loadWishlist() {
+            const wishlistArray = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlistArray.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.product} - $${item.price}`;
+                wishlist.appendChild(li);
+
+                totalPrice += item.price;
+            });
+
+            totalPriceDisplay.textContent = `Total Price: $${totalPrice}`;
+        }
+
+        loadWishlist();
+
+        // Clear Wishlist
+        function clearWishlist() {
+            localStorage.removeItem('wishlist');
+            wishlist.innerHTML = '';
+            totalPrice = 0;
+            totalPriceDisplay.textContent = `Total Price: $${totalPrice}`;
+        }
+
+        // Switch sections
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Get the necessary elements for category and price filtering
+        const categorySelect = document.getElementById('category');
+        const priceSelect = document.getElementById('price');
+        const products = document.querySelectorAll('.product');
+
+        // Function to filter and sort products
+        function updateProductDisplay() {
+            const selectedCategory = categorySelect.value;
+            const selectedPriceOrder = priceSelect.value;
+
+            // Filter products based on category
+            let filteredProducts = Array.from(products).filter(product => {
+                const productCategory = product.getAttribute('data-category');
+                return selectedCategory === 'all' || productCategory === selectedCategory;
+            });
+
+            // Sort products based on price
+            if (selectedPriceOrder === 'low-to-high') {
+                filteredProducts.sort((a, b) => {
+                    const priceA = parseInt(a.getAttribute('data-price'));
+                    const priceB = parseInt(b.getAttribute('data-price'));
+                    return priceA - priceB;
+                });
+            } else if (selectedPriceOrder === 'high-to-low') {
+                filteredProducts.sort((a, b) => {
+                    const priceA = parseInt(a.getAttribute('data-price'));
+                    const priceB = parseInt(b.getAttribute('data-price'));
+                    return priceB - priceA;
+                });
+            }
+
+            // Update the displayed products
+            const productGrid = document.getElementById('product-grid');
+            productGrid.innerHTML = ''; // Clear the current grid
+
+            filteredProducts.forEach(product => {
+                productGrid.appendChild(product); // Add the filtered and sorted products back
+            });
+        }
+
+        // Add event listeners to category and price dropdowns
+        categorySelect.addEventListener('change', updateProductDisplay);
+        priceSelect.addEventListener('change', updateProductDisplay);
+
+        // Initial call to display all products
+        updateProductDisplay();
+    </script>
+
+</body>
+</html>
